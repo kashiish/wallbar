@@ -2,6 +2,11 @@
 
 WallBar is a small Python script that creates a cron job to download a random image from the Unsplash API and set it as your desktop wallpaper (only works on macOS). 
 
+## Requirements
+
+- python3
+- macOS
+
 ## Usage
 
 - sign up for an API key at [Unsplash](https://unsplash.com/developers)
