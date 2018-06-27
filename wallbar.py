@@ -98,13 +98,11 @@ def _set_frequency_with_time_units(job, schedule):
     schedule_int = int(schedule_list[0])
     schedule_unit = schedule_list[1].lower()
     if schedule_unit == "hour" or schedule_unit == "hours":
-        job.hour.every(schedule_int)
+        job.every(schedule_int).hours()
     if schedule_unit == "day" or schedule_unit == "days":
-        job.day.every(schedule_int)
-    if schedule_unit == "week" or schedule_unit == "weeks":
-        job.week.every(schedule_int)
+        job.every(schedule_int).days()
     if schedule_unit == "month" or schedule_unit == "months":
-        job.month.every(schedule_int)
+        job.every(schedule_int).months()
 
 def _update_image_query(query):
     """
