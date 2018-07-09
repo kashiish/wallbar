@@ -46,15 +46,21 @@ def fetch_image():
         requestURL = url.format("", api_key)
     else:
         requestURL = url.format("query=" + image_query.replace(" ", "%20"), api_key)
-        
-    response = requests.get(requestURL)
     
-    if "oauth error" in response.text.lower():
-        raise APIKeyError() 
-    elif not response.ok:
-        raise APIError(response.text)
+    try:  
+
+    	response = requests.get(requestURL)
+
+    	if "oauth error" in response.text.lower():
+        	raise APIKeyError() 
+    	elif not response.ok:
+        	raise APIError(response.text)
     
-    return response
+    	return response
+
+    except Exception as e:
+    	raise e
+
 
         
 def download_random_image():
